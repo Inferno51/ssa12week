@@ -12,6 +12,8 @@ public class Battery {
 	float leftOver;
 	//in kWh
 	float difference;
+	float power; //num. of kW used per hour
+	float time; // in minutes
 	
 	public Battery(float capacity) {
 		this.capacity = capacity;
@@ -31,6 +33,10 @@ public class Battery {
 		} else {
 			return leftOver - difference;
 		}
+	}
+	
+	public float timeRemaining(float power, float leftOver) {
+		return Math.round((leftOver/power)*60); //This returns the remaining charge life in minutes.
 	}
 	
 }
