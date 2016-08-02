@@ -13,7 +13,8 @@ public class BatteryTests {
 	
 	@Test
 	public void dischargeTest() {
-		assertEquals(50, new Battery(100).dischargeBattery(70,20),0);
+		assertEquals(0, new Battery(100).dischargeBattery(70,90),0);
+		assertEquals(50, new Battery(100).dischargeBattery(70, 30), 0);
 	}
 
 }
