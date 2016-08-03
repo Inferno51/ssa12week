@@ -9,8 +9,8 @@ public class MaybePalindromeTests {
 	@Test
 	public void test() {
 		
-		assertEquals(true, new MaybePalindrome("Racecar").verification());
-		assertEquals(true, new MaybePalindrome("Jon").verification());  //this test should fail
-		
+		assertTrue(new MaybePalindrome("Racecar").verification());
+		//assertTrue(new MaybePalindrome("Jon").verification());  //this test should fail
+		assertFalse(new MaybePalindrome("Jon").verification());
 	}
 }
