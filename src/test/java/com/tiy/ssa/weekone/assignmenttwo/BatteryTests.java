@@ -8,19 +8,27 @@ public class BatteryTests {
 
 	@Test
 	public void chargeTest() {
-		assertEquals(90, new Battery(100).chargeBattery(70,20),0);
+		assertEquals(100, new Battery(100).chargeBattery(20),0.01);
 	}
 	
 	@Test
 	public void dischargeTest() {
-		assertEquals(0, new Battery(100).dischargeBattery(70,90),0);
-		assertEquals(50, new Battery(100).dischargeBattery(70, 30),0); //This test should fail.
+		assertEquals(10, new Battery(100).dischargeBattery(90),0.01);
 	}
 	
 	@Test
 	public void perHour() {
-		assertEquals(300, new Battery(100).timeRemaining(2,10),0); 
-		assertEquals(300, new Battery(100).timeRemaining(3,10),0); //This test should fail.
+		assertEquals(3000, new Battery(100).timeRemaining(2),0); 
 	}
 
+	@Test
+	public void getAndSet() {
+		Battery one = new Battery(100F);
+		assertEquals(70, one.dischargeBattery(30),0.01);
+		assertEquals(80, one.chargeBattery(10),0.01);
+		assertEquals(2400, one.timeRemaining(2),0);
+		one.getCapacity();
+		one.getRemaining(); 
+	}
 }
+

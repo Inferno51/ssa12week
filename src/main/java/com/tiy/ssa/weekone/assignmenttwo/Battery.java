@@ -11,32 +11,43 @@ public class Battery {
 	//in kWh
 	float leftOver;
 	//in kWh
-	float difference;
 	float power; //num. of kW used per hour
 	float time; // in minutes
 	
 	public Battery(float capacity) {
 		this.capacity = capacity;
+		this.leftOver = capacity;
 	}
 	
-	public float chargeBattery(float leftOver, float difference){
-		if (leftOver+difference >= capacity) {
-			return capacity;
+	public float chargeBattery(float difference){
+		if ((this.leftOver+difference) > capacity) {
+			this.leftOver = capacity;
+			return this.leftOver;
 		} else {
-			return leftOver + difference; 
+			this.leftOver += difference;
+			return this.leftOver; 
 		}
 	}
 	
-	public float dischargeBattery(float leftOver, float difference){
-		if (leftOver - difference <= 0) {
-			return 0;
+	public float dischargeBattery(float difference){
+		if (this.leftOver - difference <= 0) {
+			this.leftOver = 0;
+			return this.leftOver;
 		} else {
-			return leftOver - difference;
+			this.leftOver -= difference;
+			return this.leftOver;
 		}
 	}
 	
-	public float timeRemaining(float power, float leftOver) {
-		return Math.round((leftOver/power)*60); //This returns the remaining charge life in minutes.
+	public int timeRemaining(float power) {
+		return Math.round((this.leftOver/power)*60); //This returns the remaining charge life in minutes.
 	}
 	
+	public void getCapacity() {
+		System.out.println("Total capacity: " + this.capacity);
+	}
+	
+	public void getRemaining() {
+		System.out.println("Remaining charge: " + this.leftOver);
+	}
 }
