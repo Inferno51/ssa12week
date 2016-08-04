@@ -16,9 +16,9 @@ public class PigLatinTests {
 	}
 	*/
 	
-	public void sentanceTest() {
+	/*public void sentanceTest() {
 		PigLatin second = new PigLatin("Pig latin is hard to speak").splitArray();
 		//assertEquals("blahblah", new PigLatin("some words").splitArray());
-	}
+	}*/
 	
 }
