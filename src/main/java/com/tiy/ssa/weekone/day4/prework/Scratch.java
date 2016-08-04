@@ -36,66 +36,66 @@ public class Scratch {
 	
 	public static boolean divisableByThreeAndFive(int fromTheForLoop) {
 		
-		boolean howIsThisForThreeAndFive = false; 
+		boolean howsThis = false; 
 		
 		if (((fromTheForLoop % 3)==0) && ((fromTheForLoop % 5)==0)) {
-			howIsThisForThreeAndFive = true;
+			howsThis = true;
 		}
-		return howIsThisForThreeAndFive;
+		return howsThis;
 	}
 	
 	public static boolean divisableByThreeAndSeven (int fromTheForLoop) {
 		
-		boolean howIsThisForThreeAndSeven = false;
+		boolean howsThis = false;
 		
 		if (((fromTheForLoop % 3)==0) && ((fromTheForLoop % 7)==0)) {
-			howIsThisForThreeAndSeven = true;
+			howsThis = true;
 		}
 		
-		return howIsThisForThreeAndSeven;
+		return howsThis;
 	}
 	
 	public static boolean divisableByFiveAndSeven (int fromTheForLoop) {
 		
-		boolean howIsThisForFiveAndSeven = false;
+		boolean howsThis = false;
 		
 		if (((fromTheForLoop % 5)==0) && ((fromTheForLoop % 7)==0)) {
-			howIsThisForFiveAndSeven = true;
+			howsThis = true;
 		}
 		
-		return howIsThisForFiveAndSeven;
+		return howsThis;
 	}
 	
 	public static boolean divisableByOnlyThree(int fromTheForLoop) {
 		
-		boolean howIsThisForThree = false;
+		boolean howsThis = false;
 		
 		if ((fromTheForLoop % 3)==0) {
-			howIsThisForThree = true; 
+			howsThis = true; 
 		}
 		
-		return howIsThisForThree;
+		return howsThis;
 	}
 	
 	public static boolean divisableByOnlyFive(int fromTheForLoop) {
 		
-		boolean howIsThisForFive = false;
+		boolean howsThis = false;
 		
 		if ((fromTheForLoop % 5)==0) {
-			howIsThisForFive = true; 
+			howsThis = true; 
 		}
 		
-		return howIsThisForFive;
+		return howsThis;
 	}
 	
 	public static boolean divisableByOnlySeven(int fromTheForLoop) {
 		
-		boolean howIsThisForSeven = false;
+		boolean howsThis = false;
 		
 		if ((fromTheForLoop % 7)==0) {
-			howIsThisForSeven = true; 
+			howsThis = true; 
 		}
 		
-		return howIsThisForSeven;
+		return howsThis;
 	}
 }
