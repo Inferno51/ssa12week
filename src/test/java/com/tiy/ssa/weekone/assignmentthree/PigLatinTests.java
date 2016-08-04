@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class PigLatinTests {
 
-	/* 
+	 /*
 	@Test
 	public void test() {
 		assertEquals("appyhay", new PigLatin("happy").translate());
@@ -14,7 +14,7 @@ public class PigLatinTests {
 		assertEquals("ouldshay", new PigLatin("should").translate());
 		assertEquals("appleway", new PigLatin("apple").translate());
 	}
-	*/
+	
 	
 	/*public void sentanceTest() {
 		PigLatin second = new PigLatin("Pig latin is hard to speak").splitArray();

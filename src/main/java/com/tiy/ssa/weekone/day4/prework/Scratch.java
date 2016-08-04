@@ -1,101 +1,58 @@
 package com.tiy.ssa.weekone.day4.prework;
 
-public class Scratch {
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
-	public static void main(String[] args) {
-		for (int i = 1; i < 110; i++){
-			if (divisableByAllThree(i)) {
-				System.out.println("FizzBuzzBang");
-			} else if (divisableByThreeAndFive(i)) {
-				System.out.println("FizzBuzz");
-			} else if (divisableByThreeAndSeven(i)) {
-				System.out.println("FizzBang");
-			} else if (divisableByFiveAndSeven(i)) {
-				System.out.println("BuzzBang");
-			} else if (divisableByOnlyThree(i)) {
-				System.out.println("Fizz");
-			} else if (divisableByOnlyFive(i)) {
-				System.out.println("Buzz");
-			} else if (divisableByOnlySeven(i)) {
-				System.out.println("Bang");
-			} else {
-				System.out.println(i);
-			}
-		}
-	}
-	
-	public static boolean divisableByAllThree(int fromTheForLoop){
-		
-		boolean howsThis = false; 
-		
-		if (((fromTheForLoop % 3)==0) && ((fromTheForLoop % 5)==0) && ((fromTheForLoop % 7)==0)){
-			howsThis = true;
-		} 
-		return howsThis; 
-	}
-	
-	public static boolean divisableByThreeAndFive(int fromTheForLoop) {
-		
-		boolean howsThis = false; 
-		
-		if (((fromTheForLoop % 3)==0) && ((fromTheForLoop % 5)==0)) {
-			howsThis = true;
-		}
-		return howsThis;
-	}
-	
-	public static boolean divisableByThreeAndSeven (int fromTheForLoop) {
-		
-		boolean howsThis = false;
-		
-		if (((fromTheForLoop % 3)==0) && ((fromTheForLoop % 7)==0)) {
-			howsThis = true;
-		}
-		
-		return howsThis;
-	}
-	
-	public static boolean divisableByFiveAndSeven (int fromTheForLoop) {
-		
-		boolean howsThis = false;
-		
-		if (((fromTheForLoop % 5)==0) && ((fromTheForLoop % 7)==0)) {
-			howsThis = true;
-		}
-		
-		return howsThis;
-	}
-	
-	public static boolean divisableByOnlyThree(int fromTheForLoop) {
-		
-		boolean howsThis = false;
-		
-		if ((fromTheForLoop % 3)==0) {
-			howsThis = true; 
-		}
-		
-		return howsThis;
-	}
-	
-	public static boolean divisableByOnlyFive(int fromTheForLoop) {
-		
-		boolean howsThis = false;
-		
-		if ((fromTheForLoop % 5)==0) {
-			howsThis = true; 
-		}
-		
-		return howsThis;
-	}
-	
-	public static boolean divisableByOnlySeven(int fromTheForLoop) {
-		
-		boolean howsThis = false;
-		
-		if ((fromTheForLoop % 7)==0) {
-			howsThis = true; 
-		}
-		
-		return howsThis;
-	}
+/**
+ *
+ * @author thurston
+ */
+public class Scratch 
+{
+    final String english;
+    public Scratch(String english)
+    {
+        this.english = english;
+    }
+    
+    
+    public String translate()
+    {
+        final String[] words = this.english.split("\\W");
+        String collect = Arrays.stream(words).map(word -> 
+        {
+            int length = word.length();
+            if (length == 1)
+            {
+                if (Scratch.isVowel(word.charAt(0)))
+                    return word + "way";
+                return word;
+            }
+            
+            String firstTwo = word.substring(0, 2);
+            char first = firstTwo.charAt(0);
+            if (Scratch.isVowel(first))
+                return word + "way";
+            else if (Scratch.isVowel(firstTwo.charAt(1)))
+                return word.substring(1) + first + "ay";
+            return word.substring(2) + firstTwo + "ay";
+        }).collect(Collectors.joining(" "));
+        return collect;
+    }
+    
+    static boolean isVowel(char letter)
+    {
+        switch (Character.toUpperCase(letter))
+        {
+            case 'A' :
+            case 'E' :
+            case 'I' :
+            case 'O' :
+            case 'U' :
+                return true;
+            default :
+                return false;
+        }
+    }
 }
+
