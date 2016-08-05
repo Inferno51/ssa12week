@@ -5,8 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class PigLatinTests {
-
-	 /*
+	/*
 	@Test
 	public void test() {
 		assertEquals("appyhay", new PigLatin("happy").translate());
