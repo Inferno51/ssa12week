@@ -5,33 +5,41 @@ import java.util.Scanner;
 public class PigLatin {
 	
 	public static void main (String[] args) {
-		
-		System.out.println("Please enter the first word to translate:");
+		splitWords();	
+	}
+	
+	public static String splitWords() {
+		String temp = "";
+		System.out.println("Please enter the phrase to translate:");
 		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		String[] sentance = input.split("\\W+");
 		
-		String word = sc.nextLine();
-		String vowels = "aeiou";
+		for (int i=0; i<sentance.length; i++) {
+			temp=temp.concat(translate(sentance[i]));
+			System.out.print(translate(sentance[i]));
+		}
 		
-		
+		sc.close();
+		return temp=temp.substring(0, temp.length()-1);
+	}
+	
+	public static String translate(String word) {
 		char firstChar = word.charAt(0);
 		char secondChar = word.charAt(1);
-		
+		String vowels = "aeiou";
 		int vowelPosition = vowels.indexOf(firstChar);
 		boolean firstLetterVowel = (vowelPosition >= 0);
 		
 		if (firstLetterVowel) {
-			System.out.println (word + "way");
+			return word = (word + "way ");
 		} else if (secondChar != 'a' && secondChar != 'e' && secondChar != 'i' && secondChar != 'o' && secondChar != 'u'){
 			String twoConsWord = word.substring(2);
-			System.out.println(twoConsWord + firstChar + secondChar + "ay");
+			return word = (twoConsWord + firstChar + secondChar + "ay ");
 		} else {
 			String restOfWord = word.substring(1);
-			System.out.println(restOfWord + firstChar + "ay");
+			return word = (restOfWord + firstChar + "ay ");
 		}
-		
-		
-		
-		sc.close();
 	}
 }
 	
