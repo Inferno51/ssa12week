@@ -25,20 +25,21 @@ public class PigLatin {
 	}
 	
 	public static String translate(String word) {
-		char firstChar = word.charAt(0);
-		char secondChar = word.charAt(1);
 		String vowels = "aeiou";
-		int vowelPosition = vowels.indexOf(firstChar);
+		int vowelPosition = vowels.indexOf(word.charAt(0));
+		int wordLength = word.length();
 		boolean firstLetterVowel = (vowelPosition >= 0);
 		
 		if (firstLetterVowel) {
 			return word = (word + "way ");
-		} else if (secondChar != 'a' && secondChar != 'e' && secondChar != 'i' && secondChar != 'o' && secondChar != 'u'){
+		} else if (wordLength == 1) {
+			return word = (word + "way ");
+		} else if (word.charAt(1) != 'a' && word.charAt(1) != 'e' && word.charAt(1) != 'i' && word.charAt(1) != 'o' && word.charAt(1) != 'u'){
 			String twoConsWord = word.substring(2);
-			return word = (twoConsWord + firstChar + secondChar + "ay ");
+			return word = (twoConsWord + word.charAt(0) + word.charAt(1) + "ay ");
 		} else {
 			String restOfWord = word.substring(1);
-			return word = (restOfWord + firstChar + "ay ");
+			return word = (restOfWord + word.charAt(0) + "ay ");
 		}
 	}
 }
