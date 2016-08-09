@@ -47,6 +47,13 @@ public class Student extends Person{
 	public void setPayingAttention(boolean payingAttention) {
 		this.payingAttention = payingAttention;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [studentID=" + studentID + ", coffeed=" + coffeed + ", inClassroom=" + inClassroom
+				+ ", payingAttention=" + payingAttention + ", name=" + name + ", age=" + age + ", gender=" + gender
+				+ ", height=" + height + "]";
+	}
 	
 	
 }

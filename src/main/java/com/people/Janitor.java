@@ -26,7 +26,12 @@ public class Janitor extends Person{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Janitor [isWorking=" + isWorking + ", title=" + title + ", name=" + name + ", age=" + age + ", gender="
+				+ gender + ", height=" + height + "]";
+	}
 	
 	
 }
